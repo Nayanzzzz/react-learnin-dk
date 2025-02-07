@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import Counter from "./components/counter";
 import { useCounterCntx } from "./cntx/counter-cntx";
+import LoginPage from "./pages/auth/login/page";
 
 export interface IAppProps {
   intialValue: number;
@@ -8,6 +9,8 @@ export interface IAppProps {
 }
 
 function App() {
+
+  return <LoginPage/>
   const { count, setCount } = useCounterCntx();
 
   const handleConter = (type: number, numOfOpr: number) => {
