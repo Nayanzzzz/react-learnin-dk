@@ -1,103 +1,57 @@
-import React from "react";
-import SiteLogo from "../../../../../components/ui/logo";
+import { useState } from "react";
+import InputC from "../../../../../components/ui/input";
 
-function LeftView() {
+const LeftView = () => {
+  const [userForm, setUserForm] = useState({
+    email: "",
+    password: "",
+    name:""
+  });
+
+  const handleInputChnages = (value: string, name: keyof typeof userForm) => {
+    setUserForm((p) => ({ ...p, [name]: value }));
+  };
   return (
-    <div
-      style={{
-        flex: 1,
-        height: "100%",
-        padding: "2rem",
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
-      <SiteLogo />
-      <LoginView />
-      <p>
-        Have an account?{" "}
-        <button
-          style={{
-            color: "blue",
-            fontWeight: "bold",
-            border: "none",
-            backgroundColor: "transparent",
-            outline: "none",
-            cursor: "pointer",
-          }}
-        >
-          Sing In
-        </button>{" "}
-      </p>
-    </div>
-  );
-}
+    <div className="h-screen w-screen flex justify-center items-center">
+      <div className="border-3 border-lime-500 w-2xl h-[500px] rounded-[100px] flex items-center justify-center">
+        <form className="flex flex-col gap-2  n-500  md:  lg:gap-7  ">
+          {/* <input className=" border-3 border-blue-500 rounded-lg text-2xl p-2"
+                 type="email" placeholder="Enter Your Email "/> */}
 
-export default LeftView;
+          <InputC
+            name="name"
+            onChange={handleInputChnages}
+            value={userForm.name}
+            placeholder="Enter name id ..."
+            type="text"
+          />
+          <InputC
+            name="email"
+            onChange={handleInputChnages}
+            value={userForm.email}
+            placeholder="Enter email id ..."
+            type="email"
+          />
+          <InputC
+            name="password"
+            onChange={handleInputChnages}
+            value={userForm.password}
+            placeholder="Enter password ..."
+            type="password"
+          />
 
-function LoginView() {
-  return (
-    <div
-      style={{
-        flex: 1,
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          alignItems: "start",
-          flexDirection: "column",
-        }}
-      >
-        <p
-          style={{
-            marginBottom: "10px",
-          }}
-        >
-          Start Your Journey
-        </p>
-        <p
-          style={{
-            marginBottom: "20px",
-            fontSize: "30px",
-            fontWeight: "bold",
-          }}
-        >
-          Signup To Devkrest
-        </p>
-
-        <div
-        style={{
-            display:"flex",
-            flexDirection:"column",
-            gap:"10px",
-            width:"100%"
-        }}
-        >
-          <input 
-          style={{
-            paddingBlock:"10px",
-            paddingInline:"5px",
-            borderRadius:"5px",
-            borderColor:"blue"
-          }}
-          placeholder="Enter your email id" />
-          <input placeholder="Enter your password" />
           <button
-           style={{
-            paddingBlock:"10px",
-            paddingInline:"5px",
-            borderRadius:"5px",
-            borderColor:"blue",
-            backgroundColor:"blue",
-            color:"white"
-          }}
-          >Sign Up</button>
-        </div>
+            className="text-2xl border-2 bg-gray-700 rounded-lg"
+            style={{
+              padding: "5px",
+            }}
+          >
+            Log In
+          </button>
+        </form>
       </div>
     </div>
   );
-}
+};
+
+export default LeftView;

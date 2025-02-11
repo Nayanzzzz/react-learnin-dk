@@ -42,7 +42,7 @@ function UserReducerPage() {
   const handleAddUser = () => {
     if (!name.length) {
       alert("Please fill input");
-    } else {
+    } else {  
       dispatch({ paylod: { name, id: Math.random() * 9999 }, type: "Add" });
       setName("");
     }
@@ -61,7 +61,7 @@ function UserReducerPage() {
         />
         <button onClick={handleAddUser}>Add User</button>
       </div>
-
+          
       {data.map((value, index) => {
         return (
           <div key={index}>

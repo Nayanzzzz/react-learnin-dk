@@ -3,8 +3,10 @@ import Counter from "./components/counter";
 import { useCounterCntx } from "./cntx/counter-cntx";
 // import LoginPage from "./pages/auth/login/page";
 // import UserReducerLearn from "./hooks/learn/use-reducer";
-// import UserReducerPage from "./hooks/learn/user-reducer";
-import UserCallBackPage from "./hooks/learn/use-callback";
+import UserReducerPage from "./hooks/learn/user-reducer";
+import LoginPage from "./pages/auth/login/page";
+import MediaQuery from "./components/media-query";
+// import UserCallBackPage from "./hooks/learn/use-callback";
 
 export interface IAppProps {
   intialValue: number;
@@ -13,7 +15,7 @@ export interface IAppProps {
 
 function App() {
 
-  return <UserCallBackPage/>
+  return <MediaQuery/>
   const { count, setCount } = useCounterCntx();
 
   const handleConter = (type: number, numOfOpr: number) => {

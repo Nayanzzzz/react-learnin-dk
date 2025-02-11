@@ -1,3 +1,4 @@
+
 import LeftView from "./_components/left-view/page";
 import RightView from "./_components/right-view/page";
 
