@@ -6,6 +6,9 @@ import { useCounterCntx } from "./cntx/counter-cntx";
 import UserReducerPage from "./hooks/learn/user-reducer";
 import LoginPage from "./pages/auth/login/page";
 import MediaQuery from "./components/media-query";
+import { Provider } from "react-redux";
+import { reduxStore } from "./redux/store";
+import ProductPage from "./pages/authenticated/product/produc";
 // import UserCallBackPage from "./hooks/learn/use-callback";
 
 export interface IAppProps {
@@ -14,8 +17,11 @@ export interface IAppProps {
 }
 
 function App() {
-
-  return <MediaQuery/>
+  return (
+    <Provider store={reduxStore}>
+      <ProductPage />
+    </Provider>
+  );
   const { count, setCount } = useCounterCntx();
 
   const handleConter = (type: number, numOfOpr: number) => {

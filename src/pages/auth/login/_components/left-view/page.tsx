@@ -11,6 +11,7 @@ const LeftView = () => {
   const handleInputChnages = (value: string, name: keyof typeof userForm) => {
     setUserForm((p) => ({ ...p, [name]: value }));
   };
+  
   return (
     <div className="h-screen w-screen flex justify-center items-center">
       <div className="border-3 border-lime-500 w-2xl h-[500px] rounded-[100px] flex items-center justify-center">
@@ -41,7 +42,7 @@ const LeftView = () => {
           />
 
           <button
-            className="text-2xl border-2 bg-gray-700 rounded-lg"
+            className="text-2xl border-2  bg-gray-700 rounded-lg"
             style={{
               padding: "5px",
             }}
